@@ -141,7 +141,7 @@ function backup_package() {
         UPLOAD_FILE="${BACKUP_FILE_ZIP}"
 
         if [[ "${ZIP_TYPE}" == "zip" ]]; then
-            7z a -tzip -mx=9 -p"${ZIP_PASSWORD}" "${BACKUP_FILE_ZIP}" "${BACKUP_DIR}"/*
+            zip -9 -P "${ZIP_PASSWORD}" "${BACKUP_FILE_ZIP}" "${BACKUP_DIR}"/*
         else
             7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=32m -ms=on -mhe=on -p"${ZIP_PASSWORD}" "${BACKUP_FILE_ZIP}" "${BACKUP_DIR}"/*
         fi
